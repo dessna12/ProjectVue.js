@@ -276,10 +276,22 @@ VueJs
                     </div>
                     <div class="col-lg-7">
                         <dl class="accordion">
-                            <dt>
-                                <a href="#" class="active">Started several mistake joy say painful removed reached end.</a>
+                            
+                            <template v-for="(question, index) in faq.questions">
+                                <dt @click="faq.currentQuestion = index" class="pointer-element">
+                                    <a :class="{active: faq.currentQuestion == index}">{{ question.sentence }}</a>
+                                </dt>
+                                <dd :class="{active: faq.currentQuestion == index}">
+                                    {{ question.answer }}
+                                </dd>
+
+                            </template>
+
+
+                            <!-- <dt>
+                                <a href="#" :class="activeClass" @click="switchActivateAccordeon">Started several mistake joy say painful removed reached end.</a>
                             </dt>
-                            <dd>
+                            <dd v-show="isDivAccordeonActive">
                                 Far curiosity incommode now led smallness allowance. Favour bed assure son things yet. She
                                 consisted consulted elsewhere happiness disposing household any old the. Widow downs you
                                 new shade drift hopes small. So otherwise commanded sweetness we improving.
@@ -299,7 +311,9 @@ VueJs
                                 Far curiosity incommode now led smallness allowance. Favour bed assure son things yet. She
                                 consisted consulted elsewhere happiness disposing household any old the. Widow downs you
                                 new shade drift hopes small. So otherwise commanded sweetness we improving.
-                            </dd>
+                            </dd> -->
+
+
                         </dl>
                     </div>
                 </div>
