@@ -3,6 +3,7 @@ new Vue({
     data: {
         isDivAccordeonActive:true,
         pageAccueil: true,
+        indexActiveProduct:0,
         faq: {
             currentQuestion:0,
             questions: [
@@ -65,6 +66,11 @@ new Vue({
             ]
         },
 
+    },
+    computed: {
+        currentProduct: function () {
+            return this.products.data[this.indexActiveProduct]
+        }
 
 
     },
@@ -72,9 +78,13 @@ new Vue({
         switchActivateAccordeon: function(index) {
             this.isDivAccordeonActive = !this.isDivAccordeonActive
         },
-        showProductPage: function() {
-            this.pageAccueil=false,
-            window.scrollTo(0,0)
+        showProductPage: function(index) {
+            this.pageAccueil = false,
+            window.scrollTo(0,0),
+            this.indexActiveProduct=index
+        },
+        homeLink: function () {
+            this.pageAccueil= true
         }
         
     }
