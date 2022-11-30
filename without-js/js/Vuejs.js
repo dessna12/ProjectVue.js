@@ -2,6 +2,7 @@ new Vue({
     el: '#app',
     data: {
         isDivAccordeonActive:true,
+        pageAccueil: true,
         faq: {
             currentQuestion:0,
             questions: [
@@ -18,21 +19,67 @@ new Vue({
                     answer: 'Far curiosity incommode now led smallness allowance. Favour bed assure son things yet. She consisted consulted elsewhere happiness disposing household any old the.Widow downs you new shade drift hopes small.So otherwise commanded sweetness we improving.'
                 }
             ]
-        }
-    },
-    computed: {
-        activeClass: function() {
-            return{
-                active: this.isDivAccordeonActive
-            }
+        }, 
+        products: {
+            data: [
+                {
+                    name: 'Titre du produit 1',
+                    img: 'img/portfolio1.jpg',
+                    client: 'Envato 1',
+                    categories: ['Fashion', 'Design'],
+                    visit: 'envato.com',
+                    date: '01.09.2018'
+                },
+                {
+                    name: 'Titre du produit 2',
+                    img: 'img/portfolio2.jpg',
+                    client: 'Envato 2',
+                    categories: ['Fashion', 'Design'],
+                    visit: 'envato.com',
+                    date: '01.09.2018'
+                },
+                {
+                    name: 'Chaussure bleue',
+                    img: 'img/portfolio3.jpg',
+                    client: 'Envato 2',
+                    categories: ['Fashion', 'Design'],
+                    visit: 'envato.com',
+                    date: '01.09.2018'
+                },
+                {
+                    name: 'Titre du produit 4',
+                    img: 'img/portfolio4.jpg',
+                    client: 'Envato 2',
+                    categories: ['Fashion', 'Design'],
+                    visit: 'envato.com',
+                    date: '01.09.2018'
+                },
+                {
+                    name: 'Titre du produit 5',
+                    img: 'img/portfolio5.jpg',
+                    client: 'Envato 2',
+                    categories: ['Fashion', 'Design'],
+                    visit: 'envato.com',
+                    date: '01.09.2018'
+                }
+            ]
         },
+
+
+
     },
     methods: {
         switchActivateAccordeon: function(index) {
             this.isDivAccordeonActive = !this.isDivAccordeonActive
+        },
+        showProductPage: function() {
+            this.pageAccueil=false,
+            window.scrollTo(0,0)
         }
         
     }
 
 
 })
+
+
